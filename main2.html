@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday lachuse!</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Great+Vibes&family=Lobster+Two:wght@400;700&family=Birthstone&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pink1: #ff69b4;
+            --pink2: #ff1493;
+            --pink3: #db7093;
+            --gold: #ffd700;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Lobster Two', cursive;
+            overflow-x: hidden;
+            /* animated gradient */
+            background: linear-gradient(120deg,
+                    #ff9a9e 0%,
+                    /* pink */
+                    #fad0c4 25%,
+                    /* light peach */
+                    #ffc3a0 50%,
+                    /* peach */
+                    #ff9a9e 75%
+                    /* back to pink */
+                );
+            background-size: 800% 800%;
+            animation: bgGradient 30s ease infinite;
+        }
+
+        @keyframes bgGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            25% {
+                background-position: 50% 100%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            75% {
+                background-position: 50% 0%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin: 30px 0;
+            animation: fadeIn 1s;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: var(--pink2);
+            margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(189, 154, 154, 0.1);
+            animation: colorChange 3s infinite;
+        }
+
+        /* Greeting Section */
+        .greeting {
+            font-size: 1.8rem;
+            color: var(--pink3);
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Message Box */
+        .message-box {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .message-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .message-text {
+            font-size: 1.4rem;
+            color: #8b008b;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        /* Photo Section */
+        .photo-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .photo-section:hover .profile-img {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Birthday Wishes */
+        .birthday-wish {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--pink2);
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .balloon {
+            width: 60px;
+            margin: 10px;
+            animation: float 4s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .heart {
+            width: 40px;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: var(--pink1);
+            }
+
+            50% {
+                color: var(--gold);
+            }
+
+            100% {
+                color: var(--pink2);
+            }
+        }
+
+        .rising-heart {
+            position: fixed;
+            bottom: -50px;
+            font-size: 30px;
+            animation: rise 6s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--pink2);
+            animation: confettiFall 3s linear infinite;
+            pointer-events: none;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--pink3);
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .greeting {
+                font-size: 1.4rem;
+            }
+
+            .birthday-wish {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Font Changer Animation */
+        .font-changer {
+            animation: fontCycle 15s infinite;
+        }
+
+        @keyframes fontCycle {
+            0% {
+                font-family: 'Dancing Script', cursive;
+            }
+
+            25% {
+                font-family: 'Pacifico', cursive;
+            }
+
+            50% {
+                font-family: 'Great Vibes', cursive;
+            }
+
+            75% {
+                font-family: 'Birthstone', cursive;
+            }
+
+            100% {
+                font-family: 'Lobster Two', cursive;
+            }
+        }
+
+        /* in your <style> */
+        canvas#fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: −1;
+        }
+
+        /* STARFIELD */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px) repeat;
+            background-size: 20px 20px;
+            animation: starDrift 60s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes starDrift {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: -500px 500px;
+            }
+        }
+
+
+        .header h1 {
+            background: linear-gradient(90deg, var(--pink1), var(--gold), var(--pink2));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* 1. Tiny sparkling dots */
+        .sparkle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkleAnim 2s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes sparkleAnim {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* 2. Floating heart blobs */
+        .floating-heart {
+            position: fixed;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: floatUp 5s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5) rotate(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-20vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* 3. Starfield layer via pseudo-element */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(white 1px, transparent 1px) 0 0,
+                radial-gradient(white 1px, transparent 1px) 10px 10px;
+            background-size: 20px 20px;
+            animation: drift 60s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes drift {
+            to {
+                transform: translate(-500px, 500px);
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Lobster Two', cursive;
+            overflow-x: hidden;
+            /* animated gradient */
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4, #ffc3a0, #ff9a9e);
+            background-size: 800% 800%;
+            animation: bgGradient 30s ease infinite;
+        }
+
+        /* gradient keyframes */
+        @keyframes bgGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            25% {
+                background-position: 50% 100%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            75% {
+                background-position: 50% 0%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
+
+        .shape {
+            position: fixed;
+            opacity: 0.15;
+            pointer-events: none;
+            animation: floatShape 20s infinite ease-in-out;
+            mix-blend-mode: screen;
+            z-index: 0;
+        }
+
+        /* circle, square, triangle with different sizes/positions/colors */
+        .shape--circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #ff9a9e;
+            top: 10%;
+            left: 5%;
+            animation-duration: 25s;
+        }
+
+        .shape--square {
+            width: 250px;
+            height: 250px;
+            background: #ffc3a0;
+            bottom: 15%;
+            right: 10%;
+            animation-duration: 30s;
+            animation-delay: 5s;
+        }
+
+        .shape--triangle {
+            width: 0;
+            height: 0;
+            border-left: 180px solid transparent;
+            border-right: 180px solid transparent;
+            border-bottom: 310px solid #fad0c4;
+            top: 40%;
+            right: 20%;
+            animation-duration: 22s;
+            animation-delay: 3s;
+        }
+
+        @keyframes floatShape {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-50px) rotate(180deg);
+            }
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: fixed;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkleTwinkle 3s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        @keyframes sparkleTwinkle {
+
+            0%,
+            100% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+
+
+        .heart-effect {
+            position: absolute;
+            font-size: 20px;
+            pointer-events: none;
+            animation: flyUp 1s ease-out forwards;
+            z-index: 9999;
+            opacity: 0.8;
+        }
+
+        .heart-effect::before {
+            content: "💗";
+        }
+
+        @keyframes flyUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: translateY(-60px) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+   Mobile Responsive ≤480px
+   ========================= */
+        @media (max-width: 480px) {
+
+            /* Container spacing */
+            .container {
+                padding: 10px;
+            }
+
+            /* Header */
+            .header h1 {
+                font-size: 1.8rem;
+                /* was 2.5rem */
+                margin: 8px 0;
+            }
+
+            .greeting {
+                font-size: 1.2rem;
+                /* was 1.8rem */
+                padding: 10px;
+            }
+
+            /* Message boxes */
+            .message-box {
+                padding: 15px;
+                /* was 25px */
+                border-radius: 15px;
+                /* was 20px */
+            }
+
+            .message-text {
+                font-size: 1rem;
+                /* was 1.4rem */
+                line-height: 1.4;
+            }
+
+            /* Photo & wish */
+            .photo-section {
+                margin: 25px 0;
+            }
+
+            .profile-img {
+                width: 140px;
+                /* was 220px */
+                height: 140px;
+                border-width: 3px;
+                /* was 5px */
+            }
+
+            .birthday-wish {
+                font-size: 1.5rem;
+                /* was 2.2rem */
+                margin: 15px 0;
+            }
+
+            /* Balloons & hearts row */
+            .balloon {
+                width: 40px;
+                /* was 60px */
+            }
+
+            .heart {
+                width: 30px;
+                /* was 40px */
+            }
+
+            /* Rising hearts & confetti */
+            .rising-heart {
+                font-size: 20px;
+                /* was 30px */
+            }
+
+            .confetti {
+                width: 6px;
+                height: 6px;
+            }
+
+            /* Sparkles & floating shapes */
+            .sparkle {
+                width: 3px;
+                height: 3px;
+            }
+
+            .floating-heart {
+                font-size: 1.2rem;
+            }
+
+            /* Hide heavy décor to improve speed */
+            .shape--triangle,
+            canvas#fireworks,
+            #sparkle-container,
+            #confetti-container {
+                display: none;
+            }
+        }
+
+        /* ================================
+   Tablet Responsive 481px–1024px
+   ================================ */
+        @media (min-width: 481px) and (max-width: 1024px) {
+
+            /* Container spacing */
+            .container {
+                padding: 1.5rem;
+                /* more than mobile, less than desktop */
+            }
+
+            /* Header */
+            .header h1 {
+                font-size: 2.8rem;
+                /* between desktop 2.5rem and mobile 1.8rem */
+                margin: 12px 0;
+            }
+
+            .greeting {
+                font-size: 1.6rem;
+                /* sits between 1.8rem & 1.2rem */
+                padding: 12px;
+            }
+
+            /* Message boxes */
+            .message-box {
+                padding: 20px;
+                /* medium padding */
+                border-radius: 18px;
+            }
+
+            .message-text {
+                font-size: 1.2rem;
+                /* medium text size */
+                line-height: 1.5;
+            }
+
+            /* Photo & wish */
+            .photo-section {
+                margin: 30px 0;
+            }
+
+            .profile-img {
+                width: 180px;
+                /* between 220px & 140px */
+                height: 180px;
+                border-width: 4px;
+            }
+
+            .birthday-wish {
+                font-size: 1.9rem;
+                /* medium heading */
+                margin: 20px 0;
+            }
+
+            /* Balloons & hearts row */
+            .balloon {
+                width: 50px;
+                /* medium floaters */
+            }
+
+            .heart {
+                width: 35px;
+            }
+
+            /* Rising hearts & confetti */
+            .rising-heart {
+                font-size: 25px;
+            }
+
+            .confetti {
+                width: 8px;
+                height: 8px;
+            }
+
+            /* Sparkles & floating hearts */
+            .sparkle {
+                width: 4px;
+                height: 4px;
+            }
+
+            .floating-heart {
+                font-size: 1.4rem;
+            }
+
+            /* Decorative shapes */
+            .shape--circle {
+                width: 250px;
+                height: 250px;
+                top: -80px;
+                left: -50px;
+            }
+
+            .shape--square {
+                width: 200px;
+                height: 200px;
+                bottom: -80px;
+                right: -50px;
+            }
+
+            .shape--triangle {
+                width: 0;
+                border-left: 150px solid transparent;
+                border-right: 150px solid transparent;
+                border-bottom: 260px solid #fad0c4;
+                top: 35%;
+                right: 15%;
+            }
+
+            /* Keep canvas fireworks but reduce particle count in JS if needed */
+            canvas#fireworks {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="shape shape--circle"></div>
+    <div class="shape shape--square"></div>
+    <div class="shape shape--triangle"></div>
+
+
+    <!-- sparkle and heart containers -->
+    <div id="sparkle-container"></div>
+    <div id="heart-container"></div>
+
+
+    <div id="hearts-container"></div>
+    <div id="confetti-container"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="font-changer">Happy Birthday lachuse! 🎉</h1>
+            <p class="greeting">Hey Beautiful! 🌸</p>
+        </div>
+
+        <div class="message-box">
+            <p class="message-text font-changer">
+                On your special day, I want to remind you how amazing you are!
+                You light up every room you enter and bring joy to everyone around you.
+                Here's to another year of wonderful adventures together! 🥂
+            </p>
+        </div>
+
+        <div class="photo-section">
+            <img src="lachu.jpeg"
+                alt="Shobhita" class="profile-img">
+            <h2 class="birthday-wish">May All Your Dreams Come True! ✨</h2>
+        </div>
+
+        <div class="message-box">
+            <p class="message-text font-changer">
+                Thank you for being my constant source of love and happiness.
+            
+            </p>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="balloon.svg" class="balloon">
+            <img src="heart.svg" class="heart">
+            <img src="music-note.svg" class="balloon">
+            <img src="heart.svg" class="heart">
+        </div>
+
+        <div class="footer">
+            <p>Made with 💝 by vaish</p>
+            <a href="last.html">
+                <p onclick="location.reload()" style="cursor: pointer;">Click here to relive the magic! ✨</p>
+            </a>
+        </div>
+    </div>
+
+    <canvas id="fireworks"></canvas>
+
+
+
+    <script>
+        // Font changer script
+        const elements = document.querySelectorAll('.font-changer');
+        const fonts = [
+            'Dancing Script',
+            'Pacifico',
+            'Great Vibes',
+            'Birthstone',
+            'Lobster Two'
+        ];
+
+        let currentFont = 0;
+        setInterval(() => {
+            elements.forEach(element => {
+                element.style.fontFamily = fonts[currentFont];
+            });
+            currentFont = (currentFont + 1) % fonts.length;
+        }, 3000);
+
+        // Heart rain animation
+        function createRisingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'rising-heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+            heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+            document.getElementById('hearts-container').appendChild(heart);
+            setTimeout(() => heart.remove(), 6000);
+        }
+
+        // Confetti animation
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            document.getElementById('confetti-container').appendChild(confetti);
+            setTimeout(() => confetti.remove(), 3000);
+        }
+
+        // Start animations
+        setInterval(createRisingHeart, 300);
+        setInterval(createConfetti, 150);
+
+        // Click effect
+        document.body.addEventListener('click', (e) => {
+            const clickEffect = document.createElement('div');
+            clickEffect.className = 'heart';
+            clickEffect.style.position = 'fixed';
+            clickEffect.style.left = e.clientX + 'px';
+            clickEffect.style.top = e.clientY + 'px';
+            document.body.appendChild(clickEffect);
+            setTimeout(() => clickEffect.remove(), 1000);
+        });
+
+        // Random balloon rotation
+        document.querySelectorAll('.balloon').forEach(balloon => {
+            balloon.style.transform = `rotate(${Math.random() * 360}deg)`;
+        });
+
+
+        const c = document.getElementById('fireworks'),
+            ctx = c.getContext('2d'),
+            parts = [];
+        function resize() { c.width = innerWidth; c.height = innerHeight; }
+        window.addEventListener('resize', resize); resize();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = innerWidth / 2;
+                this.y = innerHeight / 2;
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 5 + 2;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.alpha = 1;
+                this.size = Math.random() * 3 + 1;
+                this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= 0.02;
+                if (this.alpha <= 0) this.reset();
+            }
+            draw() {
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 200; i++) parts.push(new Particle());
+        function animate() {
+            ctx.fillStyle = 'rgba(10,10,20,0.1)'; ctx.fillRect(0, 0, c.width, c.height);
+            parts.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // sparkle generator
+        function spawnSparkle() {
+            const s = document.createElement('div');
+            s.className = 'sparkle';
+            s.style.left = Math.random() * 100 + 'vw';
+            s.style.top = Math.random() * 100 + 'vh';
+            document.getElementById('sparkle-container').appendChild(s);
+            setTimeout(() => s.remove(), 2000);
+        }
+
+        // heart generator
+        function spawnHeart() {
+            const h = document.createElement('div');
+            h.className = 'floating-heart';
+            h.textContent = '💖';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.fontSize = (Math.random() * 30 + 20) + 'px';
+            document.getElementById('heart-container').appendChild(h);
+            setTimeout(() => h.remove(), 5000);
+        }
+
+        // kick off
+        setInterval(spawnSparkle, 100);
+        setInterval(spawnHeart, 400);
+
+        // click-spawn sparkle + heart for extra fun
+        document.body.addEventListener('click', e => {
+            ['sparkle', 'floating-heart'].forEach(cls => {
+                const el = document.createElement('div');
+                el.className = cls;
+                if (cls === 'floating-heart') {
+                    el.textContent = '❤️';
+                    el.style.fontSize = '24px';
+                    el.style.animationDuration = '3s';
+                }
+                el.style.left = e.clientX + 'px';
+                el.style.top = e.clientY + 'px';
+                document.getElementById(cls === 'sparkle'
+                    ? 'sparkle-container'
+                    : 'heart-container'
+                ).appendChild(el);
+                setTimeout(() => el.remove(), cls === 'sparkle' ? 2000 : 3000);
+            });
+        });
+
+        function spawnSparkle() {
+            const s = document.createElement('div');
+            s.className = 'sparkle';
+            s.style.left = Math.random() * 100 + 'vw';
+            s.style.top = Math.random() * 100 + 'vh';
+            document.body.appendChild(s);
+            setTimeout(() => s.remove(), 3000);
+        }
+        setInterval(spawnSparkle, 200);
+
+
+        const colors = ["#ff4d6d", "#ff99c8", "#ffc6ff", "#ffb3ab", "#ffccd5"];
+
+        document.addEventListener("mousemove", function (e) {
+            const heart = document.createElement("div");
+            heart.className = "heart-effect";
+            heart.style.left = e.pageX + "px";
+            heart.style.top = e.pageY + "px";
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
+        });
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

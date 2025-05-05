@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-ch">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=div, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/program.css">
+  <title>3D Cube - For Crush | SHOBHIT DEV </title>
+
+
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    html {
+      overflow: hidden;
+      height: 100%;
+      background: linear-gradient(rgb(245 69 69 / 77%), rgb(255 39 205 / 84%)), url(../images/background.jpg);
+    }
+
+    body {
+      width: 100vw;
+      height: 95vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .title {
+      color: rgb(238, 255, 255);
+      text-align: center;
+      text-shadow:
+        /* 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135 */
+      ;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 11px;
+      margin-top: -87px !important;
+      text-transform: uppercase;
+      /* justify-self: flex-start; */
+    }
+
+    .cube {
+      position: relative;
+      margin: 0px auto;
+      margin-top: 15%;
+      /* margin-left: 42%; */
+      width: 200px;
+      height: 200px;
+      transform: rotateX(-30deg) rotateY(-80deg);
+      transform-style: preserve-3d;
+      animation: rotate 15s infinite;
+    }
+
+    .cube .outer-cube,
+    .cube .inner-cube {
+      transform-style: preserve-3d;
+    }
+
+    /* 旋转立方体 */
+    @keyframes rotate {
+      from {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+
+      to {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+
+    /* 外层立方体样式 */
+    .outer-cube .outer-top,
+    .outer-cube .outer-bottom,
+    .outer-cube .outer-right,
+    .outer-cube .outer-left,
+    .outer-cube .outer-front,
+    .outer-cube .outer-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 200px;
+      border: 1px solid #fff;
+      opacity: 0.3;
+      transition: all .9s;
+      background-size: cover;
+      /* Ensures the image covers the full area */
+      background-position: center;
+      /* Centers the image */
+      background-repeat: no-repeat;
+    }
+
+    .outer-cube img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      /* Ensures the image fills the container without stretching */
+
+    }
+
+
+    .outer-top {
+      transform: rotateX(90deg) translateZ(100px);
+    }
+
+    .outer-bottom {
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    .outer-front {
+      transform: rotateY(0deg) translateZ(100px);
+    }
+
+    .outer-back {
+      transform: translateZ(-100px) rotateY(180deg);
+    }
+
+    .outer-left {
+      transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .outer-right {
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    /* 嵌套的内层立方体样式 */
+    .inner-cube>div {
+      position: absolute;
+      top: 35px;
+      left: 35px;
+      width: 130px;
+      height: 130px;
+    }
+
+    .inner-cube img {
+      width: 130px;
+      height: 130px;
+    }
+
+    .inner-top {
+      transform: rotateX(90deg) translateZ(65px);
+    }
+
+    .inner-bottom {
+      transform: rotateX(-90deg) translateZ(65px);
+    }
+
+    .inner-front {
+      transform: rotateY(0deg) translateZ(65px);
+    }
+
+    .inner-back {
+      transform: translateZ(-65px) rotateY(180deg);
+    }
+
+    .inner-left {
+      transform: rotateY(90deg) translateZ(65px);
+    }
+
+    .inner-right {
+      transform: rotateY(-90deg) translateZ(65px);
+    }
+
+    .cube:hover .outer-top {
+      right: -70px;
+      bottom: -70px;
+      opacity: 0.8;
+      transform: rotateX(90deg) translateZ(200px);
+    }
+
+    .cube:hover .outer-bottom {
+      right: -70px;
+      bottom: -70px;
+      opacity: 0.8;
+      transform: rotateX(-90deg) translateZ(200px);
+    }
+
+    .cube:hover .outer-front {
+      right: -70px;
+      bottom: -70px;
+      opacity: 0.8;
+      transform: rotateY(0deg) translateZ(200px);
+    }
+
+    .cube:hover .outer-back {
+      right: -70px;
+      bottom: -70px;
+      opacity: 0.8;
+      transform: translateZ(-200px) rotateY(180deg);
+    }
+
+    #copy {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+    }
+
+    #copy a {
+      text-decoration: none;
+      color: #191919d7;
+    }
+
+    #copy p {
+      color: #fff6f9;
+      text-align: center;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+
+    .cube:hover .outer-left {
+      right: -70px;
+      bottom: -70px;
+      opacity: 0.8;
+      transform: rotateY(90deg) translateZ(200px);
+    }
+
+    .cube:hover .outer-right {
+      right: -70px;
+      bottom: -70px;
+      opacity: 0.8;
+      transform: rotateY(-90deg) translateZ(200px);
+    }
+
+    .message .author {
+      position: absolute;
+      right: 50px;
+      background-image: -webkit-linear-gradient(left, blue, #66ffff 10%, #cc00ff 20%, #CC00CC 30%, #CCCCFF 40%, #00FFFF 50%, #CCCCFF 60%, #CC00CC 70%, #CC00FF 80%, #66FFFF 90%, blue 100%);
+      font-size: 35px;
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-background-size: 200% 100%;
+      -webkit-animation: masked-animation 4s linear infinite;
+    }
+
+    @keyframes masked-animation {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: -100% 0;
+      }
+    }
+
+    .message .tip {
+      position: absolute;
+      /* right: 10px; */
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 30px;
+      margin-top: 60px;
+      color: white;
+      font-size: 18px;
+    }
+
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      overflow: hidden;
+      height: 100%;
+      /* animated gradient background */
+      background: linear-gradient(-45deg, #ff6b6b, #feca57, #48dbfb, #5f27cd);
+      background-size: 400% 400%;
+      animation: bgShift 15s ease infinite;
+    }
+
+    @keyframes bgShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* ===== TITLE ===== */
+    .title {
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2rem;
+    }
+
+    /* ===== 3D CUBE ===== */
+    .cube {
+      width: 200px;
+      height: 200px;
+      transform: rotateX(-30deg) rotateY(-80deg);
+      transform-style: preserve-3d;
+      animation: rotateCube 15s linear infinite;
+    }
+
+    @keyframes rotateCube {
+      from {
+        transform: rotateX(-30deg) rotateY(0deg);
+      }
+
+      to {
+        transform: rotateX(-30deg) rotateY(360deg);
+      }
+    }
+
+    /* cube faces (your existing selectors) */
+    /* ... keep your .outer-cube/.inner-cube setup here ... */
+
+    /* ===== FLOATING HEARTS ===== */
+    .heart-container {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: 0;
+      width: 24px;
+      height: 24px;
+      background: #ff416c;
+      clip-path: polygon(50% 0%, 61% 17%, 79% 17%, 88% 29%, 88% 48%,
+          50% 85%, 12% 48%, 12% 29%, 21% 17%, 39% 17%);
+      opacity: 0;
+      animation: floatUp 6s ease-in infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.6);
+        opacity: 0.8;
+      }
+
+      50% {
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translateY(-500px) translateX(var(--dx)) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* different horizontal offsets & delays */
+    .heart:nth-child(1) {
+      left: 10%;
+      --dx: -30px;
+      animation-delay: 0s;
+    }
+
+    .heart:nth-child(2) {
+      left: 30%;
+      --dx: 20px;
+      animation-delay: 1s;
+    }
+
+    .heart:nth-child(3) {
+      left: 50%;
+      --dx: -20px;
+      animation-delay: 2s;
+    }
+
+    .heart:nth-child(4) {
+      left: 70%;
+      --dx: 30px;
+      animation-delay: 3s;
+    }
+
+    .heart:nth-child(5) {
+      left: 90%;
+      --dx: -25px;
+      animation-delay: 4s;
+    }
+
+    /* ===== COPYRIGHT ===== */
+    #copy {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    #copy a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+    }
+
+
+    /* ===== ENHANCED ANIMATIONS ===== */
+
+    /* 1. Add perspective to container for more depth */
+    body {
+      perspective: 1000px;
+    }
+
+    /* 2. Make cube gently pulse in size */
+    .cube {
+      animation: rotateCube 15s linear infinite, pulseCube 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseCube {
+
+      0%,
+      100% {
+        transform: rotateX(-30deg) rotateY(var(--angle, 0deg)) scale(1);
+      }
+
+      50% {
+        transform: rotateX(-30deg) rotateY(var(--angle, 0deg)) scale(1.05);
+      }
+    }
+
+    /* 3. Speed up inner cube on hover for contrast */
+    .cube:hover .inner-cube {
+      animation: spinInner 2s linear infinite;
+    }
+
+    @keyframes spinInner {
+      from {
+        transform: rotateX(-30deg) rotateY(0deg);
+      }
+
+      to {
+        transform: rotateX(-30deg) rotateY(360deg);
+      }
+    }
+
+    /* 4. Add slight wobble on hover */
+    .cube:hover {
+      animation-play-state: paused;
+      /* pause main rotation */
+      animation: wobble 0.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes wobble {
+      0% {
+        transform: rotateX(-30deg) rotateY(360deg) rotateZ(-1deg);
+      }
+
+      100% {
+        transform: rotateX(-30deg) rotateY(360deg) rotateZ(1deg);
+      }
+    }
+
+    /* 5. Hearts get a little spin & scale change */
+    .heart {
+      animation: floatUp 6s ease-in infinite, heartSpin 4s linear infinite;
+    }
+
+    @keyframes heartSpin {
+      0% {
+        transform: translateY(0) scale(0.6) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-250px) scale(1) rotate(180deg);
+      }
+
+      100% {
+        transform: translateY(-500px) scale(0.6) rotate(360deg);
+      }
+    }
+
+    /* 6. Subtle hue-rotate on the background */
+    html {
+      animation: bgShift 15s ease infinite, hueShift 30s linear infinite;
+    }
+
+    @keyframes hueShift {
+      from {
+        filter: hue-rotate(0deg);
+      }
+
+      to {
+        filter: hue-rotate(360deg);
+      }
+    }
+
+    /* 7. Smooth transitions for cube faces on hover */
+    .cube div {
+      transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease;
+    }
+
+
+    /* ===== GLOWING EFFECT ===== */
+
+    /* 1. Enhanced cube glow on hover */
+    .cube div {
+      /* base glow */
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.7),
+        inset 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .cube:hover div {
+      /* stronger outer and inner glow */
+      box-shadow: 0 0 40px rgba(255, 255, 255, 1),
+        inset 0 0 20px rgba(255, 255, 255, 0.7);
+    }
+
+    /* 2. Pulsing aura around cube */
+    .cube::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: calc(100% + 40px);
+      height: calc(100% + 40px);
+      border-radius: 8px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      z-index: -1;
+    }
+
+    .cube:hover::before {
+      opacity: 1;
+      transform: scale(1.1);
+      animation: auraPulse 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes auraPulse {
+      from {
+        opacity: 0.6;
+        transform: scale(1.05);
+      }
+
+      to {
+        opacity: 0.9;
+        transform: scale(1.15);
+      }
+    }
+
+    /* 3. Intensify background overlay glow */
+    .bg-overlay {
+      background: radial-gradient(circle at center,
+          rgba(255, 255, 255, 0.2),
+          transparent 70%);
+      filter: blur(8px);
+    }
+
+    .cube:hover~.bg-overlay {
+      animation: overlayGlow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes overlayGlow {
+      from {
+        background: radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.25),
+            transparent 70%);
+        filter: blur(6px);
+      }
+
+      to {
+        background: radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.45),
+            transparent 60%);
+        filter: blur(12px);
+      }
+    }
+
+
+    body {
+      /* already has your dark gradient + animations... */
+      display: flex;
+      justify-content: center;
+      /* horizontal centering */
+      align-items: center;
+      /* vertical centering */
+      height: 100vh;
+      /* ensure full‐height container */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* remove these from .cube if present: margin-top, margin-left, etc. */
+    .cube {
+      /* keep your 3D transforms & animations */
+      margin: 0;
+      /* reset any margins */
+    }
+
+    /* ===== STYLED “I LOVE YOU” TITLE ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+    .title {
+      position: absolute;
+      top: 120px;
+      /* move it higher */
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #5f27cd);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      animation: gradientShift 6s ease infinite, titlePulse 2s ease-in-out infinite;
+      text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    /* gradient color animation */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* gentle pulsing scale */
+    @keyframes titlePulse {
+
+      0%,
+      100% {
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        transform: translateX(-50%) scale(1.05);
+      }
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+    .title {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      background: linear-gradient(90deg, #ff4e50, #f9d423, #48dbfb, #ff6b81);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      animation: gradientShift 6s ease infinite, titlePulse 2s ease-in-out infinite, floatUpDown 3s ease-in-out infinite;
+      text-shadow: 0 0 10px rgba(255, 115, 172, 0.7),
+        0 0 20px rgba(255, 115, 172, 0.5),
+        0 0 40px rgba(255, 115, 172, 0.3);
+    }
+
+    /* Gradient Movement */
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Subtle Pulse */
+    @keyframes titlePulse {
+
+      0%,
+      100% {
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        transform: translateX(-50%) scale(1.04);
+      }
+    }
+
+    /* Floating Up and Down Animation */
+    @keyframes floatUpDown {
+
+      0%,
+      100% {
+        top: 30px;
+      }
+
+      50% {
+        top: 20px;
+      }
+    }
+
+    canvas#sparkle {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -3;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div class="cube">
+
+    <div class="outer-cube">
+      <div class="outer-top">
+        <img src="https://i.pinimg.com/736x/a4/b5/76/a4b57601d39d39dc6da4942c660b2db9.jpg" />
+      </div>
+      <div class="outer-bottom">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmNDNs_-4H0WyW0I5foxiON1nuyNoqKmDSMvYmScg-jooGOK1HKZNMgSAy6Qtz5rLgAkA&usqp=CAU" />
+      </div>
+      <div class="outer-front">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbxE_VbGLegOT9KnwYWtYPv_HX1FKeitXqbP6oTgEjpN67ZoGvvQnEtizJ21C5seCfmz4&usqp=CAU" />
+      </div>
+      <div class="outer-back">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXzZqyWZnQJIeHy-qriDs70cxyae8t0ftT9g&s" />
+      </div>
+      <div class="outer-left">
+        <img src="https://assets01.sdd1.ch/assets/lbwp-cdn/kpop-info/files/1613469064/nancy.jpg" />
+      </div>
+      <div class="outer-right">
+        <img src="https://media.philstar.com/photos/2023/03/18/s6-1_2023-03-18_23-25-14.jpg" />
+      </div>
+    </div>
+    <!-- 内层立方体 -->
+    <div class="inner-cube">
+      <div class="inner-top">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGrp0qkn3CsjnNxwyjMZhHGueiPHOtNXt6h_wia-Z023cjibcg84GwKHezefYeGM1jgJU&usqp=CAU" />
+      </div>
+      <div class="inner-bottom">
+        <img
+          src="https://static.wikia.nocookie.net/producerviet/images/0/07/Nancy.jpeg/revision/latest?cb=20230814015225" />
+      </div>
+      <div class="inner-front">
+        <img src="https://i.pinimg.com/736x/16/c8/19/16c8192ca74f1ade0f13629845c9f622.jpg" />
+      </div>
+      <div class="inner-back">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRptj_fZDOCDbMnysTRstQqdFcunqlc4vPG3LxEVw_vIpuXAL7vXKzoV6ckVI5-JS7EOog&usqp=CAU" />
+      </div>
+      <div class="https://akcdn.detik.net.id/community/media/visual/2023/12/29/nancy-momoland-2_43.png?w=400&q=90">
+        <img src="" />
+      </div>
+      <div
+        class="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsJUqNj8kzLimDoS0l9b5sER1tM46_ZIGuVDaFjVf2JS_zu5JbuA4d8UemYxMgAU9HSpQ&usqp=CAU">
+        <img src="" />
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="message">
+      <div class="tip">
+        <!-- Tip: Move the mouse in and out of the cube and the effect will be displayed! -->
+      </div>
+    </div>
+  </div>
+
+  <div id="copy">
+    <p class="text-center text-white text-sm">OG Creator <a href="https://www.instagram.com/shobhit_dev_/">Shobhit
+        Dev</a></p>
+  </div>
+
+  <div class="bg-overlay"></div>
+
+
+
+  <canvas id="sparkle"></canvas>
+  <div class="floating-hearts-container"></div>
+
+
+
+  <script>
+    const c = document.getElementById('sparkle');
+    const ctx = c.getContext('2d');
+    const particles = [];
+    function resize() {
+      c.width = innerWidth;
+      c.height = innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    class P {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * c.width;
+        this.y = c.height + 10;
+        this.vx = (Math.random() - 0.5) * 1;
+        this.vy = - (1 + Math.random() * 1.5);
+        this.alpha = 0.6 + Math.random() * 0.4;
+        this.size = 1 + Math.random() * 2;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= 0.005;
+        if (this.alpha <= 0) this.reset();
+      }
+      draw() {
+        ctx.fillStyle = `rgba(255,255,255,${this.alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+    }
+    for (let i = 0; i < 150; i++) particles.push(new P());
+    function anim() {
+      ctx.clearRect(0, 0, c.width, c.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(anim);
+    }
+    anim();
+
+  </script>
+
+
+  <script>
+    const colors = ["#ff4d6d", "#ff99c8", "#ffc6ff", "#ffb3ab", "#ffccd5"];
+
+    document.addEventListener("mousemove", function (e) {
+      const heart = document.createElement("div");
+      heart.className = "heart-effect";
+      heart.style.left = e.pageX + "px";
+      heart.style.top = e.pageY + "px";
+      heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 1000);
+    });
+  </script>
+
+  <script>
+    const colors = ["#ff4d6d", "#ff99c8", "#ffc6ff", "#ffb3ab", "#ffccd5"];
+    const heartContainer = document.querySelector(".floating-hearts-container");
+
+    function createFloatingHeart() {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+      heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+      heart.innerText = "💗";
+      heartContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createFloatingHeart, 300); // every 300ms ek heart create hoga
+  </script>
+
+
+</body>
+
+</html>
